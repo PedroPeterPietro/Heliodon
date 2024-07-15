@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controlar LEDs</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <select id="arcoSelect">
+        <option value="1">Arco 1</option>
+        <option value="2">Arco 2</option>
+        <option value="3">Arco 3</option>
+    </select>
+    
+    <select id="ledSelect"></select>
+
+    <button onclick="toggleBlink()">Ligar Lâmpada</button>
+    <button onclick="stopBlink()">Desligar Lâmpada</button>
+
+    <script>
+        const arcoSelect = document.getElementById('arcoSelect');
+        const ledSelect = document.getElementById('ledSelect');
+
+        arcoSelect.addEventListener('change', () => {
+                const selectedArco = arcoSelect.value;
+                ledSelect.innerHTML = '';
+                let totalLEDs;
+
+                if (selectedArco === '2') {
+                    totalLEDs = 13; // 13 LEDs para o Arco 2
+                } else {
+                    totalLEDs = 15; // 15 LEDs para os Arcos 1 e 3
+                }
+
+                for (let i = totalLEDs; i >= 1; i--) {
+                    const option = document.createElement('option');
+                    option.value = i;
+                    option.textContent = ` ${i+4}:00h`;
+                    ledSelect.appendChild(option);
+                }
+            });
+
+    
+
+        function toggleBlink() {
+            const selectedArco = arcoSelect.value;
+            const selectedLed = ledSelect.value;
+            const url = `http://localhost:3000/blink/${selectedArco}/${selectedLed}`;
+            
+            fetch(url)
+            .then(response => {
+                console.log(`Lâmpada ${selectedLed} do Arco ${selectedArco} ligada!`);
+            })
+            .catch(error => {
+                console.error('Ocorreu um erro!', error);
+            });
+        }
+
+        function stopBlink() {
+            const selectedArco = arcoSelect.value;
+            const selectedLed = ledSelect.value;
+            const url = `http://localhost:3000/stopblink/${selectedArco}/${selectedLed}`;
+            
+            fetch(url)
+            .then(response => {
+                console.log(`Lâmpada ${selectedLed} do Arco ${selectedArco} desligada!`);
+            })
+            .catch(error => {
+                console.error('Ocorreu um erro!', error);
+            });
+        }
+    </script>
+</body>
+</html>
