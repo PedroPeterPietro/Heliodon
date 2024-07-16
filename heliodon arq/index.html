@@ -1,21 +1,31 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controlar LEDs</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Heliodon</title>
+    <link rel="stylesheet" href="css/styles.css">
 
 </head>
 <body>
+<div class="titulo">
+    <img src="logo.png" alt="logo_iau">
+    <h1>Laboratório de Conforto Ambiental </h1> 
+</div>
+    <div class="arco">
+    <label for="arcoSelect">Selecione o Arco:</label>
     <select id="arcoSelect">
         <option value="1">Arco 1</option>
         <option value="2">Arco 2</option>
         <option value="3">Arco 3</option>
     </select>
-    
-    <select id="ledSelect"></select>
+</div>
 
+<div class="horario">
+    <label for="ledSelect">Selecione o Horário:</label>
+    <select id="ledSelect"></select>
+</div>
     <button onclick="toggleBlink()">Ligar Lâmpada</button>
     <button onclick="stopBlink()">Desligar Lâmpada</button>
 
@@ -72,5 +82,10 @@
             });
         }
     </script>
+
+
+<footer>
+    <p>Para mais Informações: <a href="https://github.com/PedroPeterPietro/Heliodon">Github</a></p>
+</footer>
 </body>
 </html>
