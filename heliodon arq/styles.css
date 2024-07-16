@@ -1,0 +1,61 @@
+  /* Estilos para o corpo do documento */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.titulo {
+    justify-content: center; /* Centraliza todo o conteúdo horizontalmente */
+    align-items: flex-start; /* Alinha itens ao topo da página */}
+    /* Estilos para o título */
+.titulo h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.titulo img {
+    display: block; /* Para garantir que a imagem não fique em linha com o texto */
+    max-width: 30px; /* Largura máxima da imagem */
+    margin: 0 auto 10px; /* Centraliza a imagem horizontalmente e adiciona margem abaixo */
+}
+
+/* Estilos para os selects */
+select {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Estilos para os botões */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+
+/* Estilos para o container principal */
+.container {
+    max-width: 600px;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
